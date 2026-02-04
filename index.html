@@ -678,6 +678,90 @@
             background: #f9fafb;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: #f9fafb;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
+            border-color: #3b82f6;
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #4b5563;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: #3b82f6;
+            opacity: 0.1;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -855,8 +939,24 @@
                 gap: 2rem;
             }
 
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
             .commercial-content {
                 gap: 2rem;
+            }
+
+            .about-content,
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-text,
+            .mission-text {
+                padding: 0;
             }
         }
 
@@ -1011,6 +1111,44 @@
             .about-image,
             .mission-image {
                 order: -1;
+            }
+
+            .about-text .section-title,
+            .mission-text .section-title {
+                text-align: center !important;
+            }
+
+            .about-text p,
+            .mission-text p {
+                font-size: 1rem !important;
+            }
+
+            .about-image img,
+            .mission-image img {
+                margin-bottom: 1rem;
+            }
+
+            .testimonials {
+                padding: 50px 0;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .testimonial-avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
             }
 
             .section-title h2 {
@@ -1177,6 +1315,10 @@
 
         /* Small Mobile */
         @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
             .hero h1 {
                 font-size: 1.5rem;
             }
@@ -1194,13 +1336,36 @@
                 font-size: 1.5rem;
             }
 
+            .section-title p {
+                font-size: 0.95rem;
+            }
+
             .phone-number {
                 font-size: 1.5rem;
             }
 
             .service-card,
-            .feature-card {
+            .feature-card,
+            .testimonial-card {
                 padding: 1.5rem 1.2rem;
+            }
+
+            .service-card h3,
+            .feature-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+
+            .feature-icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            .feature-icon-wrapper i {
+                font-size: 1.5rem;
             }
 
             .btn {
@@ -1215,6 +1380,48 @@
 
             .gallery-item {
                 height: 220px;
+            }
+
+            .testimonial-stars {
+                font-size: 1rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+            }
+
+            .testimonial-info h4 {
+                font-size: 1rem;
+            }
+
+            .testimonial-info p {
+                font-size: 0.85rem;
+            }
+
+            .commercial h2 {
+                font-size: 1.5rem;
+            }
+
+            .commercial h3 {
+                font-size: 1.2rem;
+            }
+
+            .about-text p,
+            .mission-text p {
+                font-size: 0.95rem !important;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .footer-section ul li {
+                font-size: 0.9rem;
             }
         }
 
@@ -1617,6 +1824,78 @@
                 <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem;">
                     <i class="fas fa-phone-alt"></i> Get Your Free Estimate Today
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from our satisfied customers across PA & NJ</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right testimonial-quote"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Next Level Cleaning Services exceeded our expectations! Their team was professional, thorough, and respectful of our home. Everything was spotless when they finished. Highly recommend!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah M.</h4>
+                            <p>Residential Customer - PA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right testimonial-quote"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "We use Next Level for our office building and they've been fantastic. Always on time, consistent quality, and their staff is background-checked which gives us peace of mind. Great commercial cleaning service!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-info">
+                            <h4>James R.</h4>
+                            <p>Office Manager - NJ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right testimonial-quote"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Amazing deep cleaning service! They got our carpets looking brand new and the whole house smells fresh. Very affordable and the 20% new customer discount was a great bonus. Will definitely use them again!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ML</div>
+                        <div class="testimonial-info">
+                            <h4>Maria L.</h4>
+                            <p>Homeowner - PA</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
