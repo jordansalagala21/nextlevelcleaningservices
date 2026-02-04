@@ -98,41 +98,59 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600') center/cover;
             color: white;
-            padding: 150px 0 100px;
+            padding: 180px 0 120px;
             text-align: center;
             margin-top: 60px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
             opacity: 0.95;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .promo-badge {
             display: inline-block;
-            background: #fbbf24;
+            background: white;
             color: #1e3a8a;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .cta-buttons {
@@ -143,24 +161,28 @@
         }
 
         .btn {
-            padding: 15px 35px;
+            padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             display: inline-block;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: #fbbf24;
+            background: white;
             color: #1e3a8a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-primary:hover {
-            background: #f59e0b;
+            background: #fbbf24;
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
         }
 
         .btn-secondary {
@@ -203,24 +225,42 @@
 
         /* Services Section */
         .services {
-            padding: 80px 0;
-            background: white;
+            padding: 100px 0;
+            background: #f9fafb;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #1e3a8a;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3b82f6;
         }
 
         .section-title p {
             color: #6b7280;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
@@ -230,41 +270,80 @@
         }
 
         .service-card {
-            background: #f9fafb;
-            padding: 2rem;
-            border-radius: 15px;
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
             text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
             border-color: #3b82f6;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
         }
 
         .service-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #3b82f6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
         }
 
         .service-card h3 {
             color: #1e3a8a;
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .service-card p {
             color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            font-size: 0.95rem;
+            padding: 12px 30px;
+            background: #3b82f6;
+            color: white;
+        }
+
+        .service-card .btn:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
         }
 
         /* Commercial Section */
         .commercial {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600') center/cover;
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .commercial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .commercial .container {
+            position: relative;
+            z-index: 2;
         }
 
         .commercial-content {
@@ -296,6 +375,40 @@
             font-size: 1.2rem;
         }
 
+        /* About Us Section */
+        .about-us {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            padding-right: 2rem;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 100px 0;
+            background: #f9fafb;
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-text {
+            padding-left: 2rem;
+        }
+
         .why-choose {
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
@@ -311,19 +424,8 @@
 
         /* Why Choose Us */
         .why-us {
-            padding: 80px 0;
-            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
-            position: relative;
-        }
-
-        .why-us::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #fbbf24, #3b82f6);
+            padding: 100px 0;
+            background: white;
         }
 
         .features-grid {
@@ -334,63 +436,43 @@
         }
 
         .feature-card {
-            background: white;
+            background: #f9fafb;
             padding: 2.5rem 2rem;
-            border-radius: 20px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #fbbf24);
-            transition: left 0.4s ease;
-        }
-
-        .feature-card:hover::before {
-            left: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
+            background: white;
             border-color: #3b82f6;
-            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.2);
         }
 
         .feature-icon-wrapper {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            background: #3b82f6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
         .feature-card:hover .feature-icon-wrapper {
-            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
-            transform: rotateY(360deg);
+            background: #1e3a8a;
+            transform: scale(1.1);
         }
 
         .feature-card i {
-            font-size: 2.2rem;
-            color: #3b82f6;
-            transition: all 0.4s ease;
-        }
-
-        .feature-card:hover i {
+            font-size: 2rem;
             color: white;
+            transition: all 0.3s ease;
         }
 
         .feature-card h3 {
@@ -402,14 +484,14 @@
 
         .feature-card p {
             color: #6b7280;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .feature-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: #1e3a8a;
-            padding: 5px 15px;
+            background: #3b82f6;
+            color: white;
+            padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -418,7 +500,7 @@
 
         /* Contact Section */
         .contact {
-            padding: 80px 0;
+            padding: 100px 0;
             background: white;
         }
 
@@ -592,7 +674,7 @@
 
         /* Gallery Section */
         .gallery {
-            padding: 80px 0;
+            padding: 100px 0;
             background: #f9fafb;
         }
 
@@ -908,6 +990,27 @@
             .contact,
             .commercial {
                 padding: 50px 0;
+            }
+
+            .about-us,
+            .mission {
+                padding: 50px 0;
+            }
+
+            .about-content,
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text,
+            .mission-text {
+                padding: 0;
+            }
+
+            .about-image,
+            .mission-image {
+                order: -1;
             }
 
             .section-title h2 {
@@ -1230,6 +1333,7 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#commercial">Commercial</a></li>
                 <li><a href="#gallery">Gallery</a></li>
@@ -1241,18 +1345,17 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
+            <h1>Your Clean Space<br>Starts Here</h1>
+            <p>Transform Your Space with Our Premier Cleaning Services</p>
             <div class="promo-badge">
-                <i class="fas fa-tags"></i> 20% OFF for All New Customers!
+                20% OFF for All New Customers
             </div>
-            <h1>Next Level Cleaning Services LLC</h1>
-            <p>Professional Cleaning Solutions for Homes & Businesses</p>
-            <p><i class="fas fa-shield-alt"></i> Honest • Reliable • Licensed • Insured • Certified & Respectful</p>
             <div class="cta-buttons">
                 <a href="tel:2155341387" class="btn btn-primary">
-                    <i class="fas fa-phone"></i> Call Now: 215.534.1387
+                    <i class="fas fa-phone"></i> Call: 215.534.1387
                 </a>
                 <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Get Free Estimate
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
             </div>
         </div>
@@ -1282,6 +1385,67 @@
                 <div class="badge-item">
                     <i class="fas fa-check-circle"></i>
                     <span>Certified Professionals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-title" style="text-align: left;">
+                        <h2>About Us</h2>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4b5563; margin-bottom: 1.5rem;">
+                        Founded with a commitment to excellence and service, Next Level Cleaning Services LLC embodies professionalism and reliability in every cleaning task we undertake.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4b5563; margin-bottom: 1.5rem;">
+                        Our team brings precision and dedication to homes and businesses across Pennsylvania and New Jersey. We ensure every cleaning task is handled with utmost professionalism and care.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4b5563;">
+                        As a fully licensed, insured, and certified cleaning company, we pride ourselves on being honest, reliable, and respectful. Your satisfaction and peace of mind are our top priorities.
+                    </p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">
+                        <i class="fas fa-calendar-check"></i> Get Your Free Estimate
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800" alt="Professional Cleaning Team" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800" alt="Our Mission" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+                <div class="mission-text">
+                    <div class="section-title" style="text-align: left;">
+                        <h2>Our Mission</h2>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4b5563; margin-bottom: 1.5rem;">
+                        At Next Level Cleaning Services, we are dedicated to being your trusted cleaning partner. Our mission is simple yet impactful: to bring a smile to your face by delivering the most reliable and trustworthy cleaning service at a reasonable price.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4b5563; margin-bottom: 1.5rem;">
+                        We aim to alleviate the stress from your life by ensuring your home or business is impeccably clean, allowing you to relax and focus on what matters most to you, confident that your space is well cared for.
+                    </p>
+                    <div style="background: #eff6ff; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #3b82f6; margin-top: 2rem;">
+                        <h3 style="color: #1e3a8a; margin-bottom: 1rem; font-size: 1.2rem;">
+                            <i class="fas fa-heart" style="color: #3b82f6;"></i> Our Core Values
+                        </h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; color: #4b5563;"><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 10px;"></i> Excellence in Every Detail</li>
+                            <li style="padding: 0.5rem 0; color: #4b5563;"><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 10px;"></i> Reliability You Can Trust</li>
+                            <li style="padding: 0.5rem 0; color: #4b5563;"><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 10px;"></i> Customer Satisfaction First</li>
+                            <li style="padding: 0.5rem 0; color: #4b5563;"><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 10px;"></i> Respectful & Professional Service</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1519,6 +1683,24 @@
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="images/Flyer1.JPG" alt="Residential Services - 20% Off for New Customers">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Residential Services Promo</div>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="images/flyer2.PNG" alt="Professional Commercial Cleaning Solutions">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Commercial Cleaning Services</div>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1546,6 +1728,12 @@
             <div class="section-title">
                 <h2>Get Your Free Estimate</h2>
                 <p>Contact us today for a free consultation and quote</p>
+            </div>
+            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 8px; margin-bottom: 3rem; text-align: center;">
+                <p style="color: #92400e; font-weight: 600; font-size: 1.1rem; margin: 0;">
+                    <i class="fas fa-exclamation-triangle" style="color: #f59e0b; margin-right: 8px;"></i>
+                    Cancellation Fee: $50 if a cleaning appointment is not canceled with at least 24 hours notice
+                </p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
@@ -1724,7 +1912,9 @@
             { src: 'images/1000000383.jpeg', caption: 'Residential Cleaning' },
             { src: 'images/IMG_0096.jpeg', caption: 'Deep Cleaning Service' },
             { src: 'images/IMG_0436.jpeg', caption: 'Office Cleaning' },
-            { src: 'images/IMG_0696.JPG', caption: 'Spotless Results' }
+            { src: 'images/IMG_0696.JPG', caption: 'Spotless Results' },
+            { src: 'images/Flyer1.JPG', caption: 'Residential Services - 20% Off for New Customers' },
+            { src: 'images/flyer2.PNG', caption: 'Professional Commercial Cleaning Solutions' }
         ];
 
         let currentImageIndex = 0;
