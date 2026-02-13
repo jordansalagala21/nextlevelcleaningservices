@@ -2069,7 +2069,7 @@
                 
                 <div class="contact-form">
                     <h2 style="color: #1e3a8a; margin-bottom: 1.5rem;">Request a Quote</h2>
-                    <form>
+                    <form action="https://formspree.io/f/xwvnlqll" method="POST">
                         <div class="form-group">
                             <label for="name"><i class="fas fa-user"></i> Full Name</label>
                             <input type="text" id="name" name="name" required>
@@ -2099,6 +2099,8 @@
                             <label for="message"><i class="fas fa-comment"></i> Message</label>
                             <textarea id="message" name="message" placeholder="Tell us about your cleaning needs..."></textarea>
                         </div>
+                        <!-- Hidden field for form name identification -->
+                        <input type="hidden" name="_subject" value="New Quote Request from Next Level Cleaning">
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
                             <i class="fas fa-paper-plane"></i> Send Request
                         </button>
@@ -2175,13 +2177,6 @@
                 const navLinks = document.getElementById('navLinks');
                 navLinks.classList.remove('active');
             });
-        });
-
-        // Form submission (you'll need to implement actual form handling)
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your request! We will contact you shortly at the provided phone number or email.');
-            this.reset();
         });
 
         // Gallery Lightbox
