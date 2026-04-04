@@ -1526,6 +1526,71 @@
         .floating-call-btn:hover .call-btn-tooltip {
             opacity: 1;
         }
+
+        /* Maintenance Mode Overlay */
+        .maintenance-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            background: radial-gradient(circle at 20% 20%, #1d4ed8 0%, #1e3a8a 45%, #0f172a 100%);
+            color: #ffffff;
+            padding: 2rem;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .maintenance-content {
+            max-width: 680px;
+        }
+
+        .maintenance-content i {
+            font-size: 3rem;
+            color: #fbbf24;
+            margin-bottom: 1.2rem;
+        }
+
+        .maintenance-content h1 {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .maintenance-content p {
+            font-size: 1.1rem;
+            opacity: 0.92;
+            margin-bottom: 0.7rem;
+        }
+
+        .maintenance-note {
+            margin-top: 1.2rem;
+            font-weight: 600;
+            color: #fbbf24;
+            letter-spacing: 0.3px;
+        }
+
+        body.maintenance-mode {
+            overflow: hidden;
+        }
+
+        body.maintenance-mode > *:not(.maintenance-overlay) {
+            display: none !important;
+        }
+
+        body.maintenance-mode .maintenance-overlay {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .maintenance-content h1 {
+                font-size: 2rem;
+            }
+
+            .maintenance-content p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2135,7 +2200,22 @@
         <i class="fas fa-phone-alt"></i>
     </a>
 
+    <div class="maintenance-overlay" aria-live="polite">
+        <div class="maintenance-content">
+            <i class="fas fa-tools" aria-hidden="true"></i>
+            <h1>We&rsquo;ll Be Back Soon</h1>
+            <p>Our website is currently under maintenance.</p>
+            <p>We are making improvements and will be back shortly.</p>
+            <p class="maintenance-note">Thank you for your patience.</p>
+        </div>
+    </div>
+
     <script>
+        const MAINTENANCE_MODE = true;
+        if (MAINTENANCE_MODE) {
+            document.body.classList.add('maintenance-mode');
+        }
+
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
